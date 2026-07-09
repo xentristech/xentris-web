@@ -1,0 +1,118 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Inter, Sora, Michroma } from "next/font/google";
+import "../globals.css";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
+import { Assistant } from "@/components/Assistant";
+import { JsonLd } from "@/components/JsonLd";
+import { legalSlug } from "@/lib/legal";
+import { organizationSchema, websiteSchema, altLanguages } from "@/lib/seo";
+import { site } from "@/lib/site";
+import {
+  getDictionary,
+  isLocale,
+  locales,
+  ogLocale,
+  type Locale,
+} from "@/lib/i18n";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const michroma = Michroma({
+  variable: "--font-michroma",
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const dict = getDictionary(locale);
+  return {
+    metadataBase: new URL(site.url),
+    title: {
+      default: `${site.name} — ${dict.tagline}`,
+      template: `%s | ${site.name}`,
+    },
+    description: dict.description,
+    alternates: {
+      canonical: `/${locale}`,
+      ...altLanguages("/"),
+    },
+    openGraph: {
+      type: "website",
+      locale: ogLocale[locale],
+      url: `${site.url}/${locale}`,
+      siteName: site.name,
+      title: `${site.name} — ${dict.tagline}`,
+      description: dict.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${site.name} — ${dict.tagline}`,
+      description: dict.description,
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const l = locale as Locale;
+  const dict = getDictionary(l);
+
+  return (
+    <html
+      lang={l}
+      className={`${inter.variable} ${sora.variable} ${michroma.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-white">
+        <JsonLd data={organizationSchema(l)} />
+        <JsonLd data={websiteSchema(l)} />
+        <Navbar
+          locale={l}
+          labels={dict.nav}
+          ctaLabel={dict.common.scheduleCall}
+        />
+        <main>{children}</main>
+        <Footer locale={l} dict={dict} />
+        <Assistant locale={l} t={dict.assistant} />
+        <CookieBanner
+          message={dict.cookieBanner.message}
+          accept={dict.cookieBanner.accept}
+          reject={dict.cookieBanner.reject}
+          more={dict.cookieBanner.more}
+          policyHref={`/${l}/legal/${legalSlug(l, "cookies")}`}
+        />
+      </body>
+    </html>
+  );
+}

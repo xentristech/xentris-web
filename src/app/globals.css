@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  /* Marca — Corporativo premium (azul marino + gris) */
+  --color-navy-950: #060f1f;
+  --color-navy-900: #0a1a33;
+  --color-navy-800: #0f2547;
+  --color-navy-700: #17355f;
+  --color-navy-600: #21467a;
+
+  --color-brand-300: #8fb8ff;
+  --color-brand-400: #5b9cff;
+  --color-brand-500: #2f6fed;
+  --color-brand-600: #1f57d6;
+  --color-brand-700: #1a45ac;
+
+  --color-gold-300: #e6cf95;
+  --color-gold-400: #d4b46a;
+  --color-gold-500: #c8a45c;
+
+  /* Morado de marca Xentris (del manual/logo). Documentado para uso en
+     piezas de marca y proyectos; el sitio corporativo mantiene el azul. */
+  --color-xentris-300: #b07fe0;
+  --color-xentris-400: #8b3bc0;
+  --color-xentris-500: #61298e;
+  --color-xentris-700: #3a1560;
+  --color-xentris-900: #1f1343;
+
+  --color-ink-50: #f6f8fb;
+  --color-ink-100: #eef2f7;
+  --color-ink-200: #dbe2ec;
+  --color-ink-300: #b9c4d4;
+  --color-ink-400: #8494a8;
+  --color-ink-500: #5c6b80;
+  --color-ink-600: #43506180;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-wordmark: var(--font-michroma), var(--font-sora), ui-sans-serif, sans-serif;
+
+  --shadow-premium: 0 24px 60px -20px rgb(10 26 51 / 0.25);
+  --shadow-card: 0 1px 2px rgb(10 26 51 / 0.06), 0 12px 28px -18px rgb(10 26 51 / 0.18);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a1a33;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Utilidades de composición */
+.container-x {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-navy {
+  background:
+    radial-gradient(120% 120% at 15% 0%, #17355f 0%, transparent 45%),
+    radial-gradient(120% 120% at 100% 20%, #1f57d6 0%, transparent 40%),
+    linear-gradient(180deg, #0a1a33 0%, #060f1f 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #5b9cff 0%, #8fb8ff 60%, #e6cf95 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up {
+    animation: none;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}

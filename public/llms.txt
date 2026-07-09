@@ -1,0 +1,38 @@
+# Xentris Tech
+
+> Xentris Tech es una empresa de tecnología que diseña software a medida, infraestructura cloud, soluciones de inteligencia artificial y consultoría de transformación digital para empresas que quieren crecer. Sitio bilingüe (español e inglés). / Xentris Tech is a technology company building custom software, cloud infrastructure, AI solutions and digital transformation consulting. Bilingual site (Spanish and English).
+
+Datos de la empresa / Company details:
+- Nombre / Name: Xentris Tech
+- Sitio / Site: https://xentris.tech
+- Correo / Email: info@xentris.tech
+- Teléfono / Phone: +1 (917) 764-5565
+- Teléfono alterno / Alternate phone: +1 (516) 779-0204
+- Ubicación / Location: Merrick, NY, Estados Unidos / United States
+- Idiomas / Languages: español (/es), English (/en)
+
+## Español (/es)
+- [Inicio](https://xentris.tech/es): resumen de la empresa, servicios y forma de trabajo.
+- [Servicios](https://xentris.tech/es/servicios): las cuatro áreas de especialidad.
+- [Software y apps a medida](https://xentris.tech/es/servicios/software-a-medida): desarrollo de aplicaciones web, móviles y sistemas internos a medida.
+- [Cloud e infraestructura / DevOps](https://xentris.tech/es/servicios/cloud-devops): servidores, VPS, despliegues automáticos (CI/CD), hosting y arquitectura escalable.
+- [IA y automatización](https://xentris.tech/es/servicios/ia-automatizacion): agentes y chatbots de IA, automatización de procesos e integraciones inteligentes.
+- [Consultoría y transformación digital](https://xentris.tech/es/servicios/consultoria-transformacion-digital): estrategia tecnológica, ciberseguridad y modernización de sistemas.
+- [Proyectos](https://xentris.tech/es/proyectos): proyectos reales — YOTA Montacargas (sitio con IA), PLATIM (plataforma B2B), Alexa IA + OpenAI.
+- [Nosotros](https://xentris.tech/es/nosotros): misión, visión y valores.
+- [Contacto](https://xentris.tech/es/contacto): formulario y datos para agendar una llamada de diagnóstico sin costo.
+- [Blog](https://xentris.tech/es/blog): guías sobre transformación digital, software, cloud e IA.
+- [Política de Privacidad](https://xentris.tech/es/legal/privacidad) · [Términos y Condiciones](https://xentris.tech/es/legal/terminos) · [Política de Cookies](https://xentris.tech/es/legal/cookies)
+
+## English (/en)
+- [Home](https://xentris.tech/en): company overview, services and how we work.
+- [Services](https://xentris.tech/en/servicios): the four areas of expertise.
+- [Custom software & apps](https://xentris.tech/en/servicios/software-a-medida): custom web apps, mobile apps and internal systems.
+- [Cloud & infrastructure / DevOps](https://xentris.tech/en/servicios/cloud-devops): servers, VPS, automated deployments (CI/CD), hosting and scalable architecture.
+- [AI & automation](https://xentris.tech/en/servicios/ia-automatizacion): AI agents and chatbots, process automation and smart integrations.
+- [Consulting & digital transformation](https://xentris.tech/en/servicios/consultoria-transformacion-digital): technology strategy, cybersecurity and systems modernization.
+- [Projects](https://xentris.tech/en/proyectos): real projects — YOTA Montacargas (site with AI), PLATIM (B2B platform), Alexa AI + OpenAI.
+- [About](https://xentris.tech/en/nosotros): mission, vision and values.
+- [Contact](https://xentris.tech/en/contacto): form and details to book a free discovery call.
+- [Blog](https://xentris.tech/en/blog): guides on digital transformation, software, cloud and AI.
+- [Privacy Policy](https://xentris.tech/en/legal/privacy) · [Terms & Conditions](https://xentris.tech/en/legal/terms) · [Cookie Policy](https://xentris.tech/en/legal/cookies)
