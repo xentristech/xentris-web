@@ -1,0 +1,8 @@
+# No subir al deploy (assets crudos de marca y artefactos locales)
+Branding de marca/
+branding/
+node_modules/
+.next/
+.git/
+*.pdf
+*.zip
