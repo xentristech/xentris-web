@@ -56,3 +56,6 @@ next-env.d.ts
 
 # Assets crudos del brandbook (pesados) — usar /public/brand y src/app/fonts
 /Branding de marca/
+
+# Icono local del acceso rapido de escritorio
+marca-icon.ico
