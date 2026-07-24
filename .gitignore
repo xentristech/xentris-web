@@ -53,3 +53,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Assets crudos del brandbook (pesados) — usar /public/brand y src/app/fonts
+/Branding de marca/

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Sora, Michroma } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -18,22 +19,16 @@ import {
   type Locale,
 } from "@/lib/i18n";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Tipografías del brandbook: Montserrat (texto) + Mansfield Black Italic (títulos).
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: "swap",
 });
 
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const michroma = Michroma({
-  variable: "--font-michroma",
-  weight: "400",
-  subsets: ["latin"],
+const mansfield = localFont({
+  variable: "--font-mansfield",
+  src: "../fonts/mansfield-black-italic.woff2",
   display: "swap",
 });
 
@@ -92,7 +87,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={l}
-      className={`${inter.variable} ${sora.variable} ${michroma.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${mansfield.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white">
         <JsonLd data={organizationSchema(l)} />

@@ -141,7 +141,7 @@ export function Assistant({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={t.title}
-        className="fixed bottom-5 right-5 z-[70] inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_16px_40px_-12px_rgba(10,26,51,0.6)] ring-1 ring-white/10 transition-all hover:bg-brand-600 hover:-translate-y-0.5"
+        className="fixed bottom-5 right-5 z-[70] inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_16px_40px_-12px_rgba(27,18,63,0.6)] ring-1 ring-white/10 transition-all hover:bg-brand-600 hover:-translate-y-0.5"
       >
         <IconSpark className="h-5 w-5 text-brand-300" />
         <span className="hidden sm:inline">{open ? "—" : t.launcher}</span>

@@ -34,7 +34,7 @@ export function Button({
 }) {
   const styles: Record<string, string> = {
     primary:
-      "bg-brand-500 text-white hover:bg-brand-600 shadow-[0_10px_30px_-10px_rgba(47,111,237,0.6)]",
+      "bg-brand-500 text-white hover:bg-brand-600 shadow-[0_10px_30px_-10px_rgba(139,59,192,0.6)]",
     secondary:
       "bg-white text-navy-900 ring-1 ring-ink-200 hover:ring-brand-400 hover:text-brand-600",
     ghost:

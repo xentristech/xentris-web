@@ -1,50 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  /* Marca — Corporativo premium (azul marino + gris) */
-  --color-navy-950: #060f1f;
-  --color-navy-900: #0a1a33;
-  --color-navy-800: #0f2547;
-  --color-navy-700: #17355f;
-  --color-navy-600: #21467a;
+  /* Marca Xentris — paleta oficial del brandbook:
+     #8B3BC0 · #331659 · #1B123F · #0D0D0D · #FFFFFF.
+     Los tokens conservan sus nombres históricos (navy/brand/gold)
+     para no tocar cada componente: navy = morados profundos,
+     brand = morado principal, gold = lila de acento. */
+  --color-navy-950: #0d0d0d;
+  --color-navy-900: #1b123f;
+  --color-navy-800: #331659;
+  --color-navy-700: #46207c;
+  --color-navy-600: #5c2a9e;
 
-  --color-brand-300: #8fb8ff;
-  --color-brand-400: #5b9cff;
-  --color-brand-500: #2f6fed;
-  --color-brand-600: #1f57d6;
-  --color-brand-700: #1a45ac;
+  --color-brand-300: #c9a3ec;
+  --color-brand-400: #a866d8;
+  --color-brand-500: #8b3bc0;
+  --color-brand-600: #7330a2;
+  --color-brand-700: #5c2683;
 
-  --color-gold-300: #e6cf95;
-  --color-gold-400: #d4b46a;
-  --color-gold-500: #c8a45c;
+  --color-gold-300: #e3d2f6;
+  --color-gold-400: #c9a3ec;
+  --color-gold-500: #b07fe0;
 
-  /* Morado de marca Xentris (del manual/logo). Documentado para uso en
-     piezas de marca y proyectos; el sitio corporativo mantiene el azul. */
   --color-xentris-300: #b07fe0;
   --color-xentris-400: #8b3bc0;
   --color-xentris-500: #61298e;
   --color-xentris-700: #3a1560;
   --color-xentris-900: #1f1343;
 
-  --color-ink-50: #f6f8fb;
-  --color-ink-100: #eef2f7;
-  --color-ink-200: #dbe2ec;
-  --color-ink-300: #b9c4d4;
-  --color-ink-400: #8494a8;
-  --color-ink-500: #5c6b80;
-  --color-ink-600: #43506180;
+  --color-ink-50: #f8f7fb;
+  --color-ink-100: #f1eef7;
+  --color-ink-200: #e2dcee;
+  --color-ink-300: #c3b9d8;
+  --color-ink-400: #9187a9;
+  --color-ink-500: #6b6080;
+  --color-ink-600: #4b4266;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
-  --font-wordmark: var(--font-michroma), var(--font-sora), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-mansfield), var(--font-montserrat), ui-sans-serif,
+    sans-serif;
+  --font-wordmark: var(--font-mansfield), var(--font-montserrat), ui-sans-serif,
+    sans-serif;
 
-  --shadow-premium: 0 24px 60px -20px rgb(10 26 51 / 0.25);
-  --shadow-card: 0 1px 2px rgb(10 26 51 / 0.06), 0 12px 28px -18px rgb(10 26 51 / 0.18);
+  --shadow-premium: 0 24px 60px -20px rgb(27 18 63 / 0.28);
+  --shadow-card: 0 1px 2px rgb(27 18 63 / 0.06), 0 12px 28px -18px rgb(27 18 63 / 0.2);
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #0a1a33;
+  --foreground: #1b123f;
 }
 
 html {
@@ -73,13 +77,13 @@ body {
 
 .gradient-navy {
   background:
-    radial-gradient(120% 120% at 15% 0%, #17355f 0%, transparent 45%),
-    radial-gradient(120% 120% at 100% 20%, #1f57d6 0%, transparent 40%),
-    linear-gradient(180deg, #0a1a33 0%, #060f1f 100%);
+    radial-gradient(120% 120% at 15% 0%, #46207c 0%, transparent 45%),
+    radial-gradient(120% 120% at 100% 20%, #8b3bc0 0%, transparent 40%),
+    linear-gradient(180deg, #1b123f 0%, #0d0d0d 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #5b9cff 0%, #8fb8ff 60%, #e6cf95 100%);
+  background: linear-gradient(90deg, #a866d8 0%, #c9a3ec 60%, #e3d2f6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

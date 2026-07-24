@@ -3,6 +3,7 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 import type { Locale } from "@/lib/i18n";
 
+// Lockups oficiales del brandbook (X morada + wordmark XENTRIS).
 export function Logo({
   locale,
   invert = false,
@@ -13,24 +14,17 @@ export function Logo({
   return (
     <Link
       href={`/${locale}`}
-      className="group inline-flex items-center gap-2.5"
+      className="group inline-flex items-center"
       aria-label={`${site.name} — ${locale === "en" ? "home" : "inicio"}`}
     >
       <Image
-        src={invert ? "/brand/mark-white.png" : "/brand/mark-black.png"}
+        src={invert ? "/brand/logo-on-dark.png" : "/brand/logo-on-light.png"}
         alt="Xentris"
-        width={34}
-        height={34}
+        width={900}
+        height={163}
         priority
-        className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+        className="h-7 w-auto transition-transform duration-300 group-hover:scale-[1.03]"
       />
-      <span
-        className={`font-wordmark text-base tracking-[0.16em] ${
-          invert ? "text-white" : "text-navy-900"
-        }`}
-      >
-        XENTRIS
-      </span>
     </Link>
   );
 }
