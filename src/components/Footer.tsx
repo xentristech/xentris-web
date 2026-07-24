@@ -124,7 +124,10 @@ export function Footer({
                 {d.navLabel}
               </Link>
             ))}
-            <a href="/brandbook.html" className="hover:text-white">
+            <a
+              href={locale === "en" ? "/brandbook-en.html" : "/brandbook.html"}
+              className="hover:text-white"
+            >
               {locale === "en" ? "Brand guidelines" : "Manual de marca"}
             </a>
           </nav>
