@@ -4,12 +4,16 @@
 
 Datos de la empresa / Company details:
 - Nombre / Name: Xentris Tech
+- Razón social / Legal name: Xentris LLC (constituida en / formed in Delaware, 2025)
 - Sitio / Site: https://xentris.tech
 - Correo / Email: info@xentris.tech
 - Teléfono / Phone: +1 (917) 764-5565
 - Teléfono alterno / Alternate phone: +1 (516) 779-0204
 - Ubicación / Location: Merrick, NY, Estados Unidos / United States
+- Zonas atendidas / Serves: Estados Unidos y Latinoamérica / United States and Latin America
 - Idiomas / Languages: español (/es), English (/en)
+- Especialidades / Expertise: software a medida, cloud/DevOps, inteligencia artificial y automatización, consultoría y transformación digital.
+- Perfiles / Profiles: LinkedIn https://www.linkedin.com/company/xentris-tech · X https://x.com/xentristech · GitHub https://github.com/xentristech
 
 ## Español (/es)
 - [Inicio](https://xentris.tech/es): resumen de la empresa, servicios y forma de trabajo.
@@ -22,6 +26,9 @@ Datos de la empresa / Company details:
 - [Nosotros](https://xentris.tech/es/nosotros): misión, visión y valores.
 - [Contacto](https://xentris.tech/es/contacto): formulario y datos para agendar una llamada de diagnóstico sin costo.
 - [Blog](https://xentris.tech/es/blog): guías sobre transformación digital, software, cloud e IA.
+  - [¿Qué es la transformación digital y por dónde empezar?](https://xentris.tech/es/blog/que-es-la-transformacion-digital): qué es, por dónde empezar (diagnóstico antes que comprar herramientas) y errores comunes.
+  - [Software a medida vs. software estándar: ¿cuándo conviene cada uno?](https://xentris.tech/es/blog/cuando-conviene-software-a-medida): cuándo usar SaaS estándar, cuándo desarrollar a medida y la vía híbrida.
+  - [Cómo usar inteligencia artificial en tu empresa](https://xentris.tech/es/blog/como-usar-ia-en-tu-empresa): cómo elegir el primer caso de uso de IA, hacerlo con privacidad y pasar de piloto a producción.
 - [Política de Privacidad](https://xentris.tech/es/legal/privacidad) · [Términos y Condiciones](https://xentris.tech/es/legal/terminos) · [Política de Cookies](https://xentris.tech/es/legal/cookies)
 
 ## English (/en)
@@ -35,4 +42,7 @@ Datos de la empresa / Company details:
 - [About](https://xentris.tech/en/nosotros): mission, vision and values.
 - [Contact](https://xentris.tech/en/contacto): form and details to book a free discovery call.
 - [Blog](https://xentris.tech/en/blog): guides on digital transformation, software, cloud and AI.
+  - [What is digital transformation and where to start?](https://xentris.tech/en/blog/que-es-la-transformacion-digital): what it is, where to begin (diagnosis before buying tools) and common mistakes.
+  - [Custom vs. off-the-shelf software: when to use each?](https://xentris.tech/en/blog/cuando-conviene-software-a-medida): when standard SaaS fits, when to build custom, and the hybrid path.
+  - [How to use artificial intelligence in your company](https://xentris.tech/en/blog/como-usar-ia-en-tu-empresa): how to pick your first AI use case, do it with privacy, and move from pilot to production.
 - [Privacy Policy](https://xentris.tech/en/legal/privacy) · [Terms & Conditions](https://xentris.tech/en/legal/terms) · [Cookie Policy](https://xentris.tech/en/legal/cookies)

@@ -16,6 +16,11 @@ export function organizationSchema(locale: Locale) {
     description: dict.description,
     slogan: dict.tagline,
     foundingDate: site.founded,
+    logo: {
+      "@type": "ImageObject",
+      url: `${site.url}/brand/logo-on-light.png`,
+    },
+    image: `${site.url}/brand/mark-purple.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
@@ -24,6 +29,27 @@ export function organizationSchema(locale: Locale) {
       postalCode: site.address.postalCode,
       addressCountry: site.address.countryCode,
     },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: locale === "en" ? "customer service" : "atención al cliente",
+      telephone: site.phone,
+      email: site.email,
+      availableLanguage: ["es", "en"],
+      areaServed: ["US", "Latin America"],
+    },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Place", name: "Latin America" },
+    ],
+    knowsAbout: [
+      ...dict.services.map((s) => s.name),
+      "software development",
+      "cloud infrastructure",
+      "DevOps",
+      "artificial intelligence",
+      "process automation",
+      "digital transformation",
+    ],
     sameAs: [site.social.linkedin, site.social.x, site.social.github],
     makesOffer: dict.services.map((s) => ({
       "@type": "Offer",

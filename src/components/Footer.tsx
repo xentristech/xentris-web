@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { navRoutes, site } from "@/lib/site";
 import { Logo } from "./Logo";
-import { IconMail, IconPhone, IconPin, IconGitHub } from "./icons";
+import { IconMail, IconPhone, IconPin, IconGitHub, IconLinkedIn } from "./icons";
 import type { Dictionary, Locale } from "@/lib/i18n";
 import { getLegalDocs } from "@/lib/legal";
 
@@ -56,6 +56,15 @@ export function Footer({
             </p>
           </div>
           <div className="mt-6 flex items-center gap-3">
+            <a
+              href={site.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="grid h-10 w-10 place-items-center rounded-xl bg-white/5 text-ink-300 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <IconLinkedIn className="h-5 w-5" />
+            </a>
             <a
               href={site.social.github}
               target="_blank"
@@ -129,6 +138,14 @@ export function Footer({
               className="hover:text-white"
             >
               {locale === "en" ? "Brand guidelines" : "Manual de marca"}
+            </a>
+            <a
+              href="https://xentris.llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Xentris LLC
             </a>
           </nav>
         </div>
