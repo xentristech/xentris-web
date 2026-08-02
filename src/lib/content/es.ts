@@ -249,6 +249,8 @@ export const es: Dictionary = {
     send: "Enviar",
     error: "Ups, hubo un problema. Intenta de nuevo en un momento.",
     disclaimer: "Asistente con IA. Puede cometer errores; verifica lo importante.",
+    listen: "Escuchar",
+    stop: "Detener",
   },
 
   meta: {

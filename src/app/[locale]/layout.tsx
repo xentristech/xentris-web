@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Assistant } from "@/components/Assistant";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { JsonLd } from "@/components/JsonLd";
 import { legalSlug } from "@/lib/legal";
 import { organizationSchema, websiteSchema, altLanguages } from "@/lib/seo";
@@ -100,6 +101,7 @@ export default async function LocaleLayout({
         <main>{children}</main>
         <Footer locale={l} dict={dict} />
         <Assistant locale={l} t={dict.assistant} />
+        <WhatsAppFab locale={l} />
         <CookieBanner
           message={dict.cookieBanner.message}
           accept={dict.cookieBanner.accept}

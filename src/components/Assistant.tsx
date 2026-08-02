@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Locale } from "@/lib/locales";
-import { IconArrow, IconSpark } from "./icons";
+import { IconArrow, IconSpark, IconVolume, IconStop } from "./icons";
 
 const mdComponents: Components = {
   p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
@@ -75,7 +75,20 @@ type Strings = {
   send: string;
   error: string;
   disclaimer: string;
+  listen: string;
+  stop: string;
 };
+
+/** Quita el markdown para que el texto leído en voz suene natural. */
+function stripMarkdown(md: string): string {
+  return md
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[*_#>~]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export function Assistant({
   locale,
@@ -90,11 +103,83 @@ export function Assistant({
   const [messages, setMessages] = useState<Msg[]>([
     { role: "assistant", content: t.greeting },
   ]);
+  // Audio: índice del mensaje que se está leyendo y su estado.
+  const [audio, setAudio] = useState<{ idx: number; status: "loading" | "playing" } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const audioElRef = useRef<HTMLAudioElement | null>(null);
+  const audioUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages, open]);
+
+  // Detiene cualquier audio (elemento <audio> o síntesis del navegador).
+  function stopAudio() {
+    if (audioElRef.current) {
+      audioElRef.current.pause();
+      audioElRef.current = null;
+    }
+    if (audioUrlRef.current) {
+      URL.revokeObjectURL(audioUrlRef.current);
+      audioUrlRef.current = null;
+    }
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+    setAudio(null);
+  }
+
+  // Respaldo gratuito: lee el texto con la voz del navegador.
+  function speakWithBrowser(idx: number, text: string) {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      setAudio(null);
+      return;
+    }
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = locale === "en" ? "en-US" : "es-ES";
+    u.onend = () => setAudio(null);
+    u.onerror = () => setAudio(null);
+    setAudio({ idx, status: "playing" });
+    window.speechSynthesis.speak(u);
+  }
+
+  // Alterna la lectura en voz alta del mensaje: OpenAI TTS con respaldo del navegador.
+  async function toggleSpeak(idx: number, raw: string) {
+    if (audio?.idx === idx) {
+      stopAudio();
+      return;
+    }
+    stopAudio();
+    const text = stripMarkdown(raw);
+    if (!text) return;
+    setAudio({ idx, status: "loading" });
+    try {
+      const res = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, locale }),
+      });
+      if (!res.ok) throw new Error("tts_unavailable");
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      audioUrlRef.current = url;
+      const el = new Audio(url);
+      audioElRef.current = el;
+      el.onended = () => stopAudio();
+      el.onerror = () => speakWithBrowser(idx, text);
+      await el.play();
+      setAudio({ idx, status: "playing" });
+    } catch {
+      speakWithBrowser(idx, text);
+    }
+  }
+
+  // Limpia el audio al cerrar el panel o desmontar.
+  useEffect(() => {
+    if (!open) stopAudio();
+    return () => stopAudio();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   async function send(text: string) {
     const clean = text.trim();
@@ -188,7 +273,27 @@ export function Assistant({
                 >
                   {m.role === "assistant" ? (
                     m.content ? (
-                      <MarkdownMessage content={m.content} />
+                      <>
+                        <MarkdownMessage content={m.content} />
+                        <button
+                          type="button"
+                          onClick={() => toggleSpeak(i, m.content)}
+                          aria-label={audio?.idx === i ? t.stop : t.listen}
+                          title={audio?.idx === i ? t.stop : t.listen}
+                          className="mt-2 inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-xs font-medium text-brand-600 transition-colors hover:bg-ink-100"
+                        >
+                          {audio?.idx === i ? (
+                            audio.status === "loading" ? (
+                              <span className="h-3.5 w-3.5 animate-spin rounded-full border-[1.5px] border-brand-500 border-t-transparent" />
+                            ) : (
+                              <IconStop className="h-3.5 w-3.5" />
+                            )
+                          ) : (
+                            <IconVolume className="h-3.5 w-3.5" />
+                          )}
+                          <span>{audio?.idx === i ? t.stop : t.listen}</span>
+                        </button>
+                      </>
                     ) : (
                       "…"
                     )

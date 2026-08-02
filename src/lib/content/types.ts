@@ -177,6 +177,8 @@ export type Dictionary = {
     send: string;
     error: string;
     disclaimer: string;
+    listen: string;
+    stop: string;
   };
   meta: Record<
     "home" | "servicios" | "proyectos" | "nosotros" | "blog" | "contacto",

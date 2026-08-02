@@ -248,6 +248,8 @@ export const en: Dictionary = {
     send: "Send",
     error: "Oops, something went wrong. Please try again in a moment.",
     disclaimer: "AI assistant. It can make mistakes; verify anything important.",
+    listen: "Listen",
+    stop: "Stop",
   },
 
   meta: {
